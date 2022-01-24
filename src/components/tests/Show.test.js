@@ -15,7 +15,7 @@ const testShow ={
             episodes: []
         },
         {
-            id: 0,
+            id: 1,
             name: 'season 2',
             episodes: []
         }
@@ -43,8 +43,8 @@ test('renders same number of options seasons are passed in', ()=>{
 test('handleSelect is called when a season is selected', () => {
     const handleSelect = jest.fn();
     render(<Show show={testShow} selectedSeason={'none'} handleSelect={handleSelect} />);
+    screen.debug()
     const select = screen.getByLabelText(/Select A Season/i);
-    screen.debug();
     userEvent.selectOptions(select, ['1']);
 
     expect(handleSelect).toBeCalled();
